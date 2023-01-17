@@ -2,11 +2,14 @@
   <div id="app">
   <h1>vue events</h1>
   <h2>events in action</h2>
+  <input type="text" v-on:input="setName">
+  <p>{{name}}</p>
   <hr />
+
   <button @click="increment()">add</button>
   <button @click="decrement()">remove</button>
   <p>Count:{{count}}</p>
-  <p></p>
+ 
   <div>
 </template>
 
@@ -18,10 +21,15 @@ export default {
   
   data() {
     return{
+      name:'',
     count:0
     }
   },
   methods :{
+    setName(event){
+      this.name =event.target.value;
+
+    },
     increment(){
       this.count++
 
